@@ -128,7 +128,7 @@ void menupartie3();
 void main(){
     
     
-    livre a = NULL; listechemin l=NULL;
+    livre a = NULL,b=NULL; listechemin l=NULL;
     int choix=1, e=0,f=0, pg=0, partie=1, page;
     char word[30], input, let, lettre;//variable utiliser quand la lecture des carractére   
     char str[] = Cyan"Bienvenue\033[0m\t" Jaune"Merci de consulter notre projet"fin "\t\tNous Sommes Les etudiants:\n"Magenta"\t\t\t\t\t   MAHDJOUB ABDERRAOUF\n\t\t\t\t\t   SADI MOHAMED MOUAAD\t\t"fin""Vert"\n Voici Notre Projet **********************************************"fin;
@@ -162,7 +162,6 @@ void main(){
               system("cls");
               Const_Tree(&a,1);
               if (e==1){e=0;system("cls");  printf(Vert "Construire de l arbre fait avec succes....\nVous pouvez maintenant acceder a la deuxieme partie.\t"fin Cyan"Merci pour votre comprehension"fin); goto ExitPartie1; }
-              if (f==1){f=0;system("cls");  printf(Vert "Construire de l arbre fait avec succes....\nVous pouvez maintenant acceder a la deuxieme partie.\t"fin Cyan"Merci pour votre comprehension"fin); goto PARTI3; }
               break;
               
             case '2':
@@ -264,19 +263,19 @@ void main(){
           printf(Rouge"Arbre non construit..."fin Cyan" veuillez le construire d'abord\n Voici la partie 1 taper 1 ou 2 pour construir l arbre "fin); e=1; goto parti1;
         }else
             { while(let!='0'){
-            system("cls");
+     parti2:system("cls");
 ExitPartie1:menu3 ();
             scanf(" %c", &let);
             
             switch(let){
               case 0:
                   system("cls");
-                
+                  
                   break;
               case '1':
                 system("cls");
-              a=Creer_Arbre_Ordonee(a);
-                
+               b =Creer_Arbre_Ordonee(a);
+              if (f==1){f=0;system("cls");  printf(Vert "Construire de l arbre fait avec succes....\nVous pouvez maintenant acceder a la deuxieme partie.\t"fin Cyan"Merci pour votre comprehension"fin); goto PARTI3; }  
                 break;
               case '2':
        refrche:system("cls");
@@ -294,7 +293,7 @@ ExitPartie1:menu3 ();
                 if(a!=NULL){
                   printf("Entrez un mot : ");
                   scanf("%s", word);
-                  if(recherche_mot_inserer_supprimer_page(&a,word,0,0,0)==false){
+                  if(recherche_mot_inserer_supprimer_page(&b,word,0,0,0)==false){
                     printf(Rouge"Mot n'existe pas..."fin);
                   }
                 sortir();
@@ -303,17 +302,17 @@ ExitPartie1:menu3 ();
                 system("cls");
                 printf("Entrez le mot que vous voulez l ajouter et le num de la page : ");
                 scanf("%s%d", word,&page);
-                a=ajouterMot(a,word,page);
+                b=ajouterMot(b,word,page);
                 sortir();
                 break;
               case '5':
       Réessayer: system("cls");
                  printf("Entrez un mot : ");
                  scanf("%s", word);
-                 if(recherche_mot_inserer_supprimer_page(&a,word,0,0,0)==false){
+                 if(recherche_mot_inserer_supprimer_page(&b,word,0,0,0)==false){
                     printf(Rouge"Mot n'existe pas...\ntappez 5 pour Réessayer."fin);
                     scanf("%d",&choix);
-                  } else supprimerMot(&a,word);
+                  } else supprimerMot(&b,word);
                       printf(Vert "\nla suppression faite avec succes"fin);
                      if (choix==5) goto Réessayer;
                       sortir();
@@ -346,7 +345,7 @@ ExitPartie1:menu3 ();
       }
       else if(partie == 3){
         if(a==NULL){system("cls");
-          printf(Rouge"Arbre non construit..."fin Cyan" veuillez le construire d'abord\n Voici la partie 1 taper 1 ou 2 pour construir l arbre "fin); f=1; goto parti1;
+          printf(Rouge"Arbre non construit..."fin Cyan" veuillez le construire d'abord\n Voici la partie 1 taper 1 ou 2 pour construir l arbre "fin); f=1; goto parti2;
         }
         else{while(let!='0'){
             printf("\e[1;1H\e[2J");
@@ -366,7 +365,7 @@ ExitPartie1:menu3 ();
                   break;
               case '1':
                 printf("\e[1;1H\e[2J");
-                branches(a,&l);
+                branches(b,&l);
                 printf(Vert"Liste construite avec success...\n"fin);
                 sortir();
                 break;
