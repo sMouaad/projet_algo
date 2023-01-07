@@ -308,15 +308,15 @@ ExitPartie1:menu3 ();
                  else {printf(Rouge"Veuillez construire d'abord l'arbre."fin);} sortir();
                 break;
               case '5':
-      Réessayer: system("cls"); if(b==NULL) {printf(Rouge"Veuillez construire d'abord l'arbre."fin);}
+      Reessayer: system("cls"); if(b==NULL) {printf(Rouge"Veuillez construire d'abord l'arbre."fin);}
                 else{ printf("Entrez un mot : ");
                  scanf("%s", word);
                  if(recherche_mot_inserer_supprimer_page(&b,word,0,0,0)==false){
-                    printf(Rouge"Mot n'existe pas...\ntappez 5 pour Réessayer."fin);
+                    printf(Rouge"Mot n'existe pas...\ntappez 5 pour Reessayer."fin);
                     scanf("%d",&choix);
                   } else supprimerMot(&b,word);
                       printf(Vert "\nla suppression faite avec succes"fin);
-                     if (choix==5) goto Réessayer;}
+                     if (choix==5) goto Reessayer;}
                       sortir();
                 break;
                 
