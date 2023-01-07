@@ -260,7 +260,7 @@ void main(){
       else if(partie == 2){
         system("cls");
         if(a==NULL){
-          printf(Rouge"Arbre non construit..."fin Cyan" veuillez le construire d'abord\n Voici la partie 1 taper 1 ou 2 pour construir l arbre "fin); e=1; goto parti1;
+          printf(Rouge"Arbre non construit..."fin Cyan" veuillez le construire d'abord\n Voici la partie 2 taper 1 ou 2 pour construir l arbre "fin); e=1; goto parti1;
         }else
             { while(let!='0'){
      parti2:system("cls");
